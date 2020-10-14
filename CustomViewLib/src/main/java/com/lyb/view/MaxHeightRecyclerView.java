@@ -1,9 +1,11 @@
-package com.lyb;
+package com.lyb.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.lyb.R;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
