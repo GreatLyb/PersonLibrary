@@ -1,3 +1,5 @@
+include ':Baselibrary'
+include ':CustomViewLib'
 include ':FlowLayout'
 include ':app'
 rootProject.name = "PersonLibrary"
