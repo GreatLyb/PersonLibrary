@@ -55,11 +55,12 @@ public class CustomWeekView extends WeekView {
     private Paint mSchemeBasicPaint = new Paint();
 
     private float mSchemeBaseLine;
+    private int dayTextColor=Color.parseColor("#666666");
 
     public CustomWeekView(Context context) {
         super(context);
         mTextPaint.setTextSize(dipToPx(context, 8));
-        mTextPaint.setColor(0xffffffff);
+        mTextPaint.setColor(dayTextColor);
         mTextPaint.setAntiAlias(true);
         mTextPaint.setFakeBoldText(true);
 

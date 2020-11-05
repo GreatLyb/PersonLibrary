@@ -53,12 +53,14 @@ public class CustomMonthView extends MonthView {
     private Paint mSchemeBasicPaint = new Paint();
 
     private float mSchemeBaseLine;
+    private int dayTextColor=Color.parseColor("#333333");
+    private int weekEndColor=Color.parseColor("#2072F2");
 
     public CustomMonthView(Context context) {
         super(context);
 
         mTextPaint.setTextSize(dipToPx(context, 8));
-        mTextPaint.setColor(Color.WHITE);
+        mTextPaint.setColor(dayTextColor);
         mTextPaint.setAntiAlias(true);
         mTextPaint.setFakeBoldText(true);
 
@@ -144,19 +146,17 @@ public class CustomMonthView extends MonthView {
 
         //当然可以换成其它对应的画笔就不麻烦，
         if (calendar.isWeekend() && calendar.isCurrentMonth()) {
-            mCurMonthTextPaint.setColor(0x66489dff);
-            mCurMonthLunarTextPaint.setColor(0x66489dff);
+            mCurMonthTextPaint.setColor(weekEndColor);
+            mCurMonthLunarTextPaint.setColor(weekEndColor);
             mSchemeTextPaint.setColor(0x66489dff);
             mSchemeLunarTextPaint.setColor(0x66489dff);
-            mOtherMonthLunarTextPaint.setColor(0x66489dff);
-            mOtherMonthTextPaint.setColor(0x66489dff);
+            mOtherMonthLunarTextPaint.setColor(weekEndColor);
+            mOtherMonthTextPaint.setColor(weekEndColor);
         } else {
             //            mCurMonthTextPaint.setColor(0xff333333);
             //            mCurMonthLunarTextPaint.setColor(0xffCFCFCF);
-            mCurMonthTextPaint.setColor(Color.WHITE);
-            mCurMonthLunarTextPaint.setColor(Color.WHITE);
-
-
+            mCurMonthTextPaint.setColor(dayTextColor);
+            mCurMonthLunarTextPaint.setColor(dayTextColor);
             mSchemeTextPaint.setColor(0xff333333);
             mSchemeLunarTextPaint.setColor(0xffCFCFCF);
             mOtherMonthTextPaint.setColor(0xFFe1e1e1);

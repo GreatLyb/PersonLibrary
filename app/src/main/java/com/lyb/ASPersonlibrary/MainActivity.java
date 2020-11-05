@@ -1,10 +1,10 @@
 package com.lyb.ASPersonlibrary;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
+import com.haibin.calendarview.CalendarView;
+import com.kongzue.dialog.v3.CustomDialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,51 +14,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        Log.i("Lyb", "getModel==: "+ DeviceUtils.getModel());
-//        Log.i("Lyb", "isAdbEnabled==: "+ DeviceUtils.isAdbEnabled(this));
-//        Log.i("Lyb", "isDeviceRooted==: "+ DeviceUtils.isDeviceRooted());
-//
-//        //
-        try {
-//            Runtime.getRuntime().exec("/system/xbin/su");
-            Runtime.getRuntime().exec("adb shell settings put global policy_control null");
-        } catch (IOException e) {
-            e.printStackTrace();
-            Log.i("Lyb", "IOException====: "+e);
-        }
-//        exusecmd("mount -o rw,remount /data");
-//        exusecmd("chmod 777 /data/data/shensi");
-    }
-
-    public static boolean exusecmd(String command) {
-        Process process = null;
-        DataOutputStream os = null;
-        try {
-            process = Runtime.getRuntime().exec("su");
-            os = new DataOutputStream(process.getOutputStream());
-            os.writeBytes(command + "\n");
-            os.writeBytes("exit\n");
-            os.flush();
-            process.waitFor();
-        } catch (Exception e) {
-            Log.i("Lyb", "e=-=: "+e);
-
-            return false;
-        } finally {
-            try {
-                if (os != null) {
-                    os.close();
-                }
-                if (process != null) {
-                    process.destroy();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        CustomDialog.build(this, R.layout.view_choose_time, new CustomDialog.OnBindView() {
+            @Override
+            public void onBind(CustomDialog dialog, View v) {
+                CalendarView calendarView =v.findViewById(R.id.calendarView);
+                //                datePicker.setMode(DPMode.SINGLE);
+                //                datePicker.setDPDecor(new DPDecor() {
+                //                    @Override
+                //                    public void drawDecorTL(Canvas canvas, Rect rect, Paint paint) {
+                //                        paint.setColor(ContextCompat.getColor(getContext(),R.color.main_color));
+                //                        canvas.drawRect(rect, paint);
+                //                    }
+                //
+                //                    @Override
+                //                    public void drawDecorTR(Canvas canvas, Rect rect, Paint paint) {
+                //                        paint.setColor(Color.BLUE);
+                //                        canvas.drawCircle(rect.centerX(), rect.centerY(), rect.width() / 2, paint);
+                //                    }
+                //                });
+                //                Calendar calendar=Calendar.getInstance();
+                //                datePicker.setDate(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH));
             }
-        }
-        return true;
+        }).setFullScreen(true).setAlign(CustomDialog.ALIGN.DEFAULT).show();
+
     }
+
 
 
 }

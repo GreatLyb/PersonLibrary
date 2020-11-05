@@ -1,6 +1,7 @@
 package com.haibin.custom;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
@@ -40,6 +41,7 @@ public class CustomWeekBar extends WeekBar {
     protected void onWeekStartChange(int weekStart) {
         for (int i = 0; i < getChildCount(); i++) {
             ((TextView) getChildAt(i)).setText(getWeekString(i, weekStart));
+            ((TextView) getChildAt(i)).setTextColor(Color.parseColor("#999999"));
         }
     }
 

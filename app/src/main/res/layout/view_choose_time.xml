@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:background="@drawable/shape_white_4_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:text="选择日期"
+                android:textColor="#333333"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/tv_clear_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:drawablePadding="5dp"
+                android:padding="15dp"
+                android:text="清除已选日期"
+                android:textColor="#777777"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="8dp"
+            android:background="#f5f5f5" />
+
+        <com.haibin.calendarview.CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="375dp"
+            app:calendar_padding="15dp"
+            app:current_day_lunar_text_color="#FFA82E"
+            app:current_day_text_color="#FFA82E"
+            app:lunar_text_size="10sp"
+            app:max_year="2100"
+            app:max_year_day="31"
+            app:max_year_month="12"
+            app:min_year="2020"
+            app:min_year_day="1"
+            app:min_year_month="1"
+            app:month_view="com.haibin.custom.CustomMonthView"
+            app:month_view_auto_select_day="last_select_day_ignore_current"
+            app:month_view_show_mode="mode_only_current"
+            app:other_month_lunar_text_color="#e1e1e1"
+            app:selected_lunar_text_color="#d71345"
+
+            app:selected_text_color="#d71345"
+            app:selected_theme_color="#999999"
+            app:week_text_size="18sp"
+            app:week_view="com.haibin.custom.CustomWeekView" />
+
+    </LinearLayout>
+
+</LinearLayout>
