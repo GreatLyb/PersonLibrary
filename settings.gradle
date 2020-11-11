@@ -3,4 +3,7 @@ include ':CustomViewLib'
 include ':FlowLayout'
 include ':app'
 include ':calendarview'
+include ':log2file'
+include ':export-api'
+include ':LogUtils'
 rootProject.name = "PersonLibrary"
